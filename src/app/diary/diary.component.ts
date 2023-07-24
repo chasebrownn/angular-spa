@@ -15,6 +15,8 @@ export class DiaryComponent implements OnInit, OnDestroy {
     diarySubscription = new Subscription();
 
     constructor(private diaryDataService: DiaryDataService, private router: Router) {}
+
+    // ~ Lifecycle hooks ~
     
     ngOnInit(): void {
         this.diarySubscription = this.diaryDataService.diarySubject.subscribe(diaryEntries => {
@@ -27,11 +29,17 @@ export class DiaryComponent implements OnInit, OnDestroy {
         this.diarySubscription.unsubscribe();
     }
 
+    // ~ Functions ~
+
     onDelete(index: number) {
         this.diaryDataService.onDelete(index);
     }
 
     onEdit(index: number) {
         this.router.navigate(["edit", index]);
+    }
+
+    getDiaryEntry(index: number) {
+        return {...this.diaryEntries[index]}
     }
 }
