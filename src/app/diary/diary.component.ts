@@ -19,10 +19,10 @@ export class DiaryComponent implements OnInit, OnDestroy {
     // ~ Lifecycle hooks ~
     
     ngOnInit(): void {
-        this.diaryDataService.getDiaryEntries();
         this.diarySubscription = this.diaryDataService.diarySubject.subscribe(diaryEntries => {
             this.diaryEntries = diaryEntries;
         });
+        this.diaryEntries = this.diaryDataService.diaryEntries;
     }
 
     ngOnDestroy(): void {
@@ -37,5 +37,9 @@ export class DiaryComponent implements OnInit, OnDestroy {
 
     onEdit(index: number) {
         this.router.navigate(["edit", index]);
+    }
+
+    getDiaryEntry(index: number) {
+        return {...this.diaryEntries[index]}
     }
 }
