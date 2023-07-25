@@ -4,13 +4,14 @@ import { DiaryComponent } from './diary/diary.component';
 import { DiaryFormComponent } from './diary-form/diary-form.component';
 
 const routes: Routes = [
-  {path:"", component: DiaryComponent},
-  {path:'data-entry', component: DiaryFormComponent},
-  {path:'edit/:id', component: DiaryFormComponent},
+    {path:"", component: DiaryComponent},
+    {path:"data-entry", component: DiaryFormComponent},
+    {path:"edit/:id", component: DiaryFormComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

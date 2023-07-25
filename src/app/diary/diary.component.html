@@ -7,12 +7,12 @@
             <th>Date</th>
             <th>Entry</th>
             <th>Action</th>
-
         </tr>
     </thead>
 
     <tbody>
         <tr *ngFor="let diary of diaryEntries; let i = index">
+            <!-- interpolation -->
             <td>{{diary.date}}</td>
             <td>{{diary.entry}}</td>
             <td>
@@ -20,14 +20,6 @@
                 <button (click)="onDelete(i)" class="btn btn-danger">Delete</button>
             </td>
         </tr>
-        <!-- <tr *ngFor='let diary of diaryEntries; let i = index'>
-            <td>{{diary.date}}</td>
-            <td>{{diary.entry}}</td>
-            <td *ngIf="isAuthenticated">
-                <button class="btn btn-primary" (click)="onEdit(diary.id)">Edit</button>   
-                <button class="btn btn-danger" (click)='onDelete(diary.id)'>Delete</button>
-            </td>
-        </tr>    -->
     </tbody>
 
 </table>
